@@ -265,7 +265,7 @@ Download the icon theme from [GNOME Look](https://www.gnome-look.org/p/1405756),
 
 ```bash
 mkdir -p ~/.local/share/icons
-tar -xf ~/Downloads/THEME_ARCHIVE.tar.xz -C ~/.local/share/icons/
+tar -xf ~/Downloads/01-WhiteSur.tar.xz -C ~/.local/share/icons/
 ```
 
 Replace `THEME_ARCHIVE.tar.xz` with the name of the file you downloaded. You can also extract it with your file manager and move the folder into `~/.local/share/icons` manually.
