@@ -2,8 +2,6 @@
 
 My GNOME desktop customization: keybinds, extensions, and theming. Most settings are shared, and the guide covers two looks: a **Fedora look** built on the Adwair icon theme, and a **macOS look** built on the WhiteSur icon theme. Where a setting differs between the two, it's called out.
 
-For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDORA_SETUP.md).
-
 ## Table of Contents
 
 - [Screenshots](#screenshots)
