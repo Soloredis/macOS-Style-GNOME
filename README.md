@@ -1,8 +1,8 @@
-# MacOS Style GNOME Customization Guide
+# GNOME Customization Guide
 
 My GNOME desktop customization: keybinds, extensions, and theming.
 
-This is only supported by GNOME 51.
+For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDORA_SETUP.md).
 
 ## Table of Contents
 
@@ -14,11 +14,9 @@ This is only supported by GNOME 51.
   - [Global Menu for GNOME](#global-menu-for-gnome)
   - [Kiwi (is not Apple)](#kiwi-is-not-apple)
   - [Mosaic](#mosaic)
-  - [Panel Workspace Scroll](#panel-workspace-scroll)
   - [Rounded Window Corners Native](#rounded-window-corners-native)
   - [Status Tray](#status-tray)
   - [Tidy Quick Settings](#tidy-quick-settings)
-  - [Top Bar Organizer Plus](#top-bar-organizer-plus)
   - [V-Shell](#v-shell)
   - [Wallpaper Slideshow](#wallpaper-slideshow)
 - [Styling](#styling)
@@ -72,7 +70,6 @@ Settings:
 ### Blur My Shell
 
 - Create a custom pipeline: **"Frosted Glass"** (Dual Kawase blur) with light setting `1.00`.
-- If you don't want a custom pipeline choose Blur (Light mode)
 - Set Dock, Panel, and Popups to **Dynamic**.
 - In Panel settings, turn off **Disable in overview**.
 - Set every option to use your new pipeline.
@@ -143,10 +140,6 @@ grep -n "kiwi-panel-styled-disabled" stylesheet.css
 - Under Resizing, disable every keybind except **Toggle resize mode** (`Super+R`, then arrow keys; hold `Shift` for the opposite direction)
 - Leave all other keybinds as they are, so `Super+Alt+Arrow keys` still switches workspaces like stock GNOME
 
-### Panel Workspace Scroll
-
-Install it; no configuration needed.
-
 ### Rounded Window Corners Native
 
 Install it; no configuration needed. This version builds on GTK4 and is more stable.
@@ -168,11 +161,6 @@ Settings:
 - Toggle the Settings button
 - Toggle the Lock button
 - Toggle the Power Menu button
-
-### Top Bar Organizer Plus
-
-- Move the clock to the far right.
-- Arrange the rest to taste.
 
 ### V-Shell
 
