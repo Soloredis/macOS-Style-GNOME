@@ -2,6 +2,8 @@
 
 My GNOME desktop customization: keybinds, extensions, and theming.
 
+This is only supported by GNOME 51.
+
 ## Table of Contents
 
 - [Custom Keybinds](#custom-keybinds)
