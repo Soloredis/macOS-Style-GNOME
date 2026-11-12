@@ -35,27 +35,27 @@ For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDOR
 
 ### Fedora Look
 
-![Arc Menu runner over the desktop](screenshots/fedora/arc-menu.jpg)
+![Arc Menu runner over the desktop](screenshots/arc-menu.jpg)
 *Arc Menu in runner mode, centered on screen and showing frequently used apps.*
 
-![App grid with workspace thumbnails](screenshots/fedora/app-grid.jpg)
+![App grid with workspace thumbnails](screenshots/app-grid.jpg)
 *App grid with the Adwair icon theme and V-Shell workspace thumbnails along the top.*
 
-![Files and Settings with a teal accent](screenshots/fedora/accent-colors.jpg)
+![Files and Settings with a teal accent](screenshots/accent-colors-2.jpg)
 *The accent color carries through Files and Settings thanks to the [Nautilus & Settings styling](#nautilus--settings-styling).*
 
 ### macOS Look
 
-![Desktop with the Apple menu open](screenshots/macos/apple-menu.jpg)
+![Desktop with the Apple menu open](screenshots/apple-menu.jpg)
 *Global Menu for GNOME with the Apple logo, Kiwi dock styling, and Blur My Shell.*
 
-![Launchpad-style app grid](screenshots/macos/launchpad.jpg)
+![Launchpad-style app grid](screenshots/launchpad.jpg)
 *Launchpad-style app grid with the WhiteSur icon theme and workspace thumbnails hidden.*
 
-![Quick Settings panel](screenshots/macos/quick-settings.jpg)
+![Quick Settings panel](screenshots/quick-settings.jpg)
 *Quick Settings trimmed down with Tidy Quick Settings.*
 
-![Files and Settings with a blue accent](screenshots/macos/accent-colors.jpg)
+![Files and Settings with a blue accent](screenshots/accent-colors-1.jpg)
 *The same styling with the blue accent color.*
 
 ---
@@ -192,11 +192,11 @@ Not available on extensions.gnome.org. Install it manually by following the inst
 
 Settings:
 
-- Toggle the Power icon
-- Toggle the Screenshot button
-- Toggle the Settings button
-- Toggle the Lock button
-- Toggle the Power Menu button
+- Hide the Power icon
+- Hide the Screenshot button
+- Hide the Settings button
+- Hide the Lock button
+- Hide the Power Menu button
 
 ### V-Shell
 
