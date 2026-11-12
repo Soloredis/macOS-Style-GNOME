@@ -1,8 +1,6 @@
-# GNOME Customization Guide
+# MacOS Style GNOME Customization Guide
 
 My GNOME desktop customization: keybinds, extensions, and theming.
-
-For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDORA_SETUP.md).
 
 ## Table of Contents
 
@@ -72,6 +70,7 @@ Settings:
 ### Blur My Shell
 
 - Create a custom pipeline: **"Frosted Glass"** (Dual Kawase blur) with light setting `1.00`.
+- If you don't want a custom pipeline choose Blur (Light mode)
 - Set Dock, Panel, and Popups to **Dynamic**.
 - In Panel settings, turn off **Disable in overview**.
 - Set every option to use your new pipeline.
