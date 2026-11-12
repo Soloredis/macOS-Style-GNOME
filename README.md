@@ -17,12 +17,13 @@ For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDOR
   - [Panel Workspace Scroll](#panel-workspace-scroll)
   - [Rounded Window Corners Native](#rounded-window-corners-native)
   - [Status Tray](#status-tray)
+  - [Tidy Quick Settings](#tidy-quick-settings)
   - [Top Bar Organizer Plus](#top-bar-organizer-plus)
   - [V-Shell](#v-shell)
   - [Wallpaper Slideshow](#wallpaper-slideshow)
 - [Styling](#styling)
   - [Nautilus & Settings Styling](#nautilus--settings-styling)
-  - [Icon Theme](#icon-theme)
+  - [Icon Themes](#icon-themes)
 
 ---
 
@@ -86,7 +87,7 @@ Settings:
 
 ### Global Menu for GNOME
 
-- Icon: Fedora
+- Icon: Fedora (or the Apple logo at `22px` if you use the [Apple-style icon theme](#icon-themes))
 - Disable the Help button
 
 Always show the Log Out option:
@@ -155,6 +156,18 @@ Install it; no configuration needed. This version builds on GTK4 and is more sta
 - Padding between icons: `16px`
 - Panel position: Right
 
+### Tidy Quick Settings
+
+Not available on extensions.gnome.org. Install it manually by following the instructions in the [tidy-quicksettings repo](https://github.com/Soloredis/tidy-quicksettings).
+
+Settings:
+
+- Toggle the Power icon
+- Toggle the Screenshot button
+- Toggle the Settings button
+- Toggle the Lock button
+- Toggle the Power Menu button
+
 ### Top Bar Organizer Plus
 
 - Move the clock to the far right.
@@ -195,17 +208,6 @@ Install it; no configuration needed. This version builds on GTK4 and is more sta
 - Slide duration: 24 hours
 - Disable Use Absolute Time Elapsed for Slide Duration
 - Sort by: Oldest date
-
-### Tidy Quick Settings (Github only)
-
-- Follow install guide from Github
-- Toggle power Icon
-- Toggle Screen shot button.
-- Toggle Settings button
-- Toggle lock button.
-- Toggle power menu button.
-
-https://github.com/Soloredis/tidy-quicksettings
 
 ---
 
@@ -253,9 +255,13 @@ pkill -f gnome-control-center
 sed -i '/Custom tweaks: begin/,/Custom tweaks: end/d' ~/.config/gtk-4.0/gtk.css && gsettings reset org.gnome.desktop.interface accent-color && nautilus -q; pkill -f gnome-control-center
 ```
 
-### Icon Theme
+### Icon Themes
 
-[Adwair](https://github.com/kusaida/Adwair) by kusaida.
+Pick one of the following.
+
+**Option 1: macOS-inspired, without Apple branding**
+
+[Adwair](https://github.com/kusaida/Adwair) by kusaida:
 
 ```bash
 git clone --depth 1 https://github.com/kusaida/Adwair.git
@@ -264,4 +270,23 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Then apply it in **GNOME Tweaks → Appearance → Icons**, or follow the terminal instructions in the Adwair repo.
+**Option 2: Apple-style icons**
+
+Download the icon theme from [GNOME Look](https://www.gnome-look.org/p/1405756), then extract it into your local icons folder (create the folder if it doesn't exist):
+
+```bash
+mkdir -p ~/.local/share/icons
+tar -xf ~/Downloads/THEME_ARCHIVE.tar.xz -C ~/.local/share/icons/
+```
+
+Replace `THEME_ARCHIVE.tar.xz` with the name of the file you downloaded. You can also extract it with your file manager and move the folder into `~/.local/share/icons` manually.
+
+To match, open the [Global Menu for GNOME](#global-menu-for-gnome) settings, change the icon to the **Apple logo**, and set the icon size to `22px`.
+
+**Apply the theme**
+
+Open **GNOME Tweaks → Appearance → Icons** and select the theme. Alternatively, set it from the terminal (replace `THEME_NAME` with the theme's folder name):
+
+```bash
+gsettings set org.gnome.desktop.interface icon-theme 'THEME_NAME'
+```
