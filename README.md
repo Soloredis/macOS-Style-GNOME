@@ -58,6 +58,8 @@ For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDOR
 ![Files and Settings with a blue accent](screenshots/accent-colors-1.jpg)
 *The same styling with the blue accent color.*
 
+*Also uses Arc Runner like shown in Fedora look.*
+
 ---
 
 ## Custom Keybinds
