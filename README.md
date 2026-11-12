@@ -1,11 +1,14 @@
 # GNOME Customization Guide
 
-My GNOME desktop customization: keybinds, extensions, and theming.
+My GNOME desktop customization: keybinds, extensions, and theming. Most settings are shared, and the guide covers two looks: a **Fedora look** built on the Adwair icon theme, and a **macOS look** built on the WhiteSur icon theme. Where a setting differs between the two, it's called out.
 
 For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDORA_SETUP.md).
 
 ## Table of Contents
 
+- [Screenshots](#screenshots)
+  - [Fedora Look](#fedora-look)
+  - [macOS Look](#macos-look)
 - [Custom Keybinds](#custom-keybinds)
 - [GNOME Extensions](#gnome-extensions)
   - [Arc Menu](#arc-menu)
@@ -22,6 +25,38 @@ For the base system setup (encryption, hardware, apps), see [Fedora Setup](FEDOR
 - [Styling](#styling)
   - [Nautilus & Settings Styling](#nautilus--settings-styling)
   - [Icon Themes](#icon-themes)
+  - [Sound Theme](#sound-theme)
+  - [macOS Window Buttons (Optional)](#macos-window-buttons-optional)
+  - [Flatpak Fixes](#flatpak-fixes)
+
+---
+
+## Screenshots
+
+### Fedora Look
+
+![Arc Menu runner over the desktop](screenshots/fedora/arc-menu.jpg)
+*Arc Menu in runner mode, centered on screen and showing frequently used apps.*
+
+![App grid with workspace thumbnails](screenshots/fedora/app-grid.jpg)
+*App grid with the Adwair icon theme and V-Shell workspace thumbnails along the top.*
+
+![Files and Settings with a teal accent](screenshots/fedora/accent-colors.jpg)
+*The accent color carries through Files and Settings thanks to the [Nautilus & Settings styling](#nautilus--settings-styling).*
+
+### macOS Look
+
+![Desktop with the Apple menu open](screenshots/macos/apple-menu.jpg)
+*Global Menu for GNOME with the Apple logo, Kiwi dock styling, and Blur My Shell.*
+
+![Launchpad-style app grid](screenshots/macos/launchpad.jpg)
+*Launchpad-style app grid with the WhiteSur icon theme and workspace thumbnails hidden.*
+
+![Quick Settings panel](screenshots/macos/quick-settings.jpg)
+*Quick Settings trimmed down with Tidy Quick Settings.*
+
+![Files and Settings with a blue accent](screenshots/macos/accent-colors.jpg)
+*The same styling with the blue accent color.*
 
 ---
 
@@ -69,10 +104,11 @@ Settings:
 
 ### Blur My Shell
 
-- Create a custom pipeline: **"Frosted Glass"** (Dual Kawase blur) with light setting `1.00`.
-- Set Dock, Panel, and Popups to **Dynamic**.
+- Create a custom pipeline: **"Frosted Glass"** (Dual Kawase blur) with light setting `1.00`. If you'd rather not create one, use the built-in **Default (Light mode)** pipeline instead.
+- Set Dock and Popups to **Dynamic**.
+- Keep Panel set to **Static**.
 - In Panel settings, turn off **Disable in overview**.
-- Set every option to use your new pipeline.
+- Set every option to use your pipeline (Frosted Glass or Default Light mode).
 
 ### Dash to Dock
 
@@ -85,7 +121,7 @@ Settings:
 
 ### Global Menu for GNOME
 
-- Icon: Fedora (or the Apple logo at `22px` if you use the [Apple-style icon theme](#icon-themes))
+- Icon: Fedora for the [Fedora look](#fedora-look), or the Apple logo at `22px` for the [macOS look](#macos-look)
 - Disable the Help button
 
 Always show the Log Out option:
@@ -118,7 +154,7 @@ grep -n "get_backend" menuManager.js
 - Disable Downloads Folder in Dock (buggy)
 - Enable Launchpad Application
 - Enable Dock Styling
-- Disable everything in the **Buttons** category, unless you want a full macOS look (this requires extra commands to override Flatpak permissions)
+- Disable everything in the **Buttons** category, unless you want macOS-style window buttons (see [macOS Window Buttons](#macos-window-buttons-optional))
 - Disable the entire **Options** category
 
 **Bug fix:** with Blur My Shell enabled, the top panel flashes when entering the overview. Run the following, then log out and back in:
@@ -166,10 +202,12 @@ Settings:
 
 **Layout**
 
-- Thumbnails Position / Workspaces Orientation: Top Horizontal
-- Workspace Max Scale – App View: `6`
-- Workspace Thumbnails Max Scale – Search: `6`
-- Fine Tune Workspace Thumbnails Position: `0`
+| Setting | Fedora look | macOS look |
+|---------|-------------|------------|
+| Thumbnails Position / Workspaces Orientation | Top Horizontal | Top Horizontal |
+| Workspace Thumbnails Max Scale – App View | `6` | `0` |
+| Workspace Thumbnails Max Scale – Search | `6` | `0` |
+| Fine Tune Workspace Thumbnails Position | `0` | `0` |
 
 **Appearance**
 
@@ -238,6 +276,8 @@ nautilus -q
 pkill -f gnome-control-center
 ```
 
+The script sets the accent to blue, but the styling follows whatever accent you pick in **Settings → Appearance**.
+
 **To remove:**
 
 ```bash
@@ -246,9 +286,9 @@ sed -i '/Custom tweaks: begin/,/Custom tweaks: end/d' ~/.config/gtk-4.0/gtk.css 
 
 ### Icon Themes
 
-Pick one of the following.
+Pick one, depending on which look you want.
 
-**Option 1: macOS-inspired, without Apple branding**
+**Fedora look: Adwair**
 
 [Adwair](https://github.com/kusaida/Adwair) by kusaida:
 
@@ -259,23 +299,63 @@ chmod +x install.sh
 ./install.sh
 ```
 
-**Option 2: Apple-style icons**
+**macOS look: WhiteSur**
 
-Download the icon theme from [GNOME Look](https://www.gnome-look.org/p/1405756), then extract it into your local icons folder (create the folder if it doesn't exist):
+Download the icon theme from [GNOME Look](https://www.gnome-look.org/p/1405756), then extract it into your local icons folder (the first command creates the folder if it doesn't exist):
 
 ```bash
 mkdir -p ~/.local/share/icons
 tar -xf ~/Downloads/01-WhiteSur.tar.xz -C ~/.local/share/icons/
 ```
 
-Replace `THEME_ARCHIVE.tar.xz` with the name of the file you downloaded. You can also extract it with your file manager and move the folder into `~/.local/share/icons` manually.
+If your download has a different file name, use that instead. You can also extract it with your file manager and move the folder into `~/.local/share/icons` manually.
 
 To match, open the [Global Menu for GNOME](#global-menu-for-gnome) settings, change the icon to the **Apple logo**, and set the icon size to `22px`.
 
 **Apply the theme**
 
-Open **GNOME Tweaks → Appearance → Icons** and select the theme. Alternatively, set it from the terminal (replace `THEME_NAME` with the theme's folder name):
+Open **GNOME Tweaks → Appearance → Icons** and select the theme. Alternatively, set it from the terminal (replace `THEME_NAME` with the theme's folder name in `~/.local/share/icons`):
 
 ```bash
 gsettings set org.gnome.desktop.interface icon-theme 'THEME_NAME'
+```
+
+### Sound Theme
+
+I use the Yaru sound theme (from Ubuntu), available in the Fedora repos:
+
+```bash
+sudo dnf install yaru-sound-theme
+```
+
+Then select **Yaru** as the sound theme in **GNOME Tweaks**, or set it from the terminal:
+
+```bash
+gsettings set org.gnome.desktop.sound theme-name 'Yaru'
+```
+
+### macOS Window Buttons (Optional)
+
+For macOS-style window buttons, enable Kiwi's **Buttons** category. Leave the defaults, but turn on the Firefox option. Log out and back in to apply.
+
+Extension Manager runs as a Flatpak, so give it read-only access to your GTK4 config and Kiwi's folder:
+
+```bash
+flatpak override --user --filesystem=xdg-config/gtk-4.0:ro --filesystem=$HOME/.local/share/gnome-shell/extensions/kiwi@kemma:ro com.mattjakeman.ExtensionManager
+```
+
+### Flatpak Fixes
+
+These force the apps to run through XWayland instead of native Wayland.
+
+Prism Launcher:
+
+```bash
+flatpak override --user --nosocket=wayland org.prismlauncher.PrismLauncher
+```
+
+Obsidian:
+
+```bash
+flatpak override --user --nosocket=wayland md.obsidian.Obsidian
 ```
