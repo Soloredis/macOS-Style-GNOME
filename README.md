@@ -124,21 +124,6 @@ Settings:
 - Icon: Fedora for the [Fedora look](#fedora-look), or the Apple logo at `22px` for the [macOS look](#macos-look)
 - Disable the Help button
 
-Always show the Log Out option:
-
-```bash
-gsettings set org.gnome.shell always-show-log-out true
-```
-
-**Temporary bug workaround.** This fixes a reported bug and may not be needed on newer versions of the extension:
-
-```bash
-cd ~/.local/share/gnome-shell/extensions/globalmenu@ShiroOSL.github.io/
-cp menuManager.js menuManager.js.bak
-sed -i 's/Clutter\.get_default_backend()/global.stage.context.get_backend()/g' menuManager.js
-grep -n "get_backend" menuManager.js
-```
-
 ### Kiwi (is not Apple)
 
 - Disable Panel Transparency
