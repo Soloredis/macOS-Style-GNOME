@@ -187,6 +187,8 @@ Settings:
 
 **Layout**
 
+Fine Tune Workspace Thumbnails Position: 0
+
 | Setting | Fedora look | macOS look |
 |---------|-------------|------------|
 | Thumbnails Position / Workspaces Orientation | Top Horizontal | Top Horizontal |
